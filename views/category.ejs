@@ -8,12 +8,12 @@
 <body>
     <h1><%= category %></h1>
     <%- include('./partials/nav') %>
-    <% menu.forEach(item) => { %>
+    <% menu.forEach(item => { %>
         <ul>
-            <li><%= item.name %>: <strong><%= item.price %></strong></li>
+            <li><%= item.name %>: <strong>$<%= item.price %></strong></li>
             <li>rating: <strong><%= item.rating %></strong></li>
             <li><%= item.details %></li>
         </ul>
-    <% } %>
+    <% }) %>
 </body>
 </html>
