@@ -58,9 +58,9 @@ app.get('/', (req, res) => {
 
 app.get('/menu', (req, res) => {
     const categorys = [...new Set(RESTAURANT.menu.map(item => item.category))];
-    const upperCaseCategorys = categorys.forEach(category => category.charAt(0).toUpperCase() + category.slice(1));
+    const upperCaseCategorys = categorys.map(category => category.charAt(0).toUpperCase() + category.slice(1));
 
-    res.render('menu.ejs', { menu: RESTAURANT.menu }, { upperCaseCategorys });
+    res.render('menu.ejs', { menu: RESTAURANT.menu, upperCaseCategorys });
 });
 
 

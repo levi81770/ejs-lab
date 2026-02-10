@@ -9,28 +9,18 @@
 
 <body>
     <h1>Full Menu</h1>
-    <% const renderItem=()=> { %>
-        return `
-        <ul>
-            <li>
-                <%= item.name %>: <strong> $<%= item.price %> </strong>
-            </li>
-            <li>rating: <strong>
-                    <%= item.rating %>
-                </strong></li>
-            <li>
-                <%= item.details %>
-            </li>
-        </ul>`
-        <% } %>
-        <% upperCaseCategorys.forEach(category=> { %>
-            <h2><%= category %></h2>
+    <% upperCaseCategorys.forEach(category=> { %>
+        <h2><%= category %></h2>
             <% menu.forEach(item=> { %>
                 <% if(item.category===category.toLowerCase()){ %>
-                    <%= renderItem() %>
+                    <ul>
+                        <li><%= item.name %>: <strong>$<%= item.price %></strong></li>
+                        <li>rating: <strong><%= item.rating %></strong></li>
+                        <li><%= item.details %></li>
+                    </ul>
                 <% } %>
             <% }) %>
-        <% }) %>
+    <% }) %>
 </body>
 
 </html>
