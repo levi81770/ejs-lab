@@ -8,10 +8,11 @@
 </head>
 
 <body>
+    <%- include('./partials/nav') %>
     <h1>Full Menu</h1>
-    <% upperCaseCategorys.forEach(category=> { %>
+    <% upperCaseCategorys.forEach(category => { %>
         <h2><%= category %></h2>
-            <% menu.forEach(item=> { %>
+            <% menu.forEach(item => { %>
                 <% if(item.category===category.toLowerCase()){ %>
                     <ul>
                         <li><%= item.name %>: <strong>$<%= item.price %></strong></li>
