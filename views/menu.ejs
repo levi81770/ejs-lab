@@ -14,8 +14,17 @@
         <h2><%= category %></h2>
             <% menu.forEach(item => { %>
                 <% if(item.category===category.toLowerCase()){ %>
+                    
                     <ul>
-                        <li><%= item.name %>: <strong>$<%= item.price %></strong></li>
+                        <li>   
+                            <% if(item.rating === 5){ %>
+                                ⭐
+                            <% } %>
+                            <%= item.name %>: 
+                            <strong>
+                                $<%= item.price %>
+                            </strong>
+                        </li>
                         <li>rating: <strong><%= item.rating %></strong></li>
                         <li><%= item.details %></li>
                     </ul>
