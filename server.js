@@ -57,8 +57,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/menu', (req, res) => {
-    const categorys = [...new Set(RESTAURANT.menu.map(item => item.category))];
-    const upperCaseCategorys = categorys.map(category => category.charAt(0).toUpperCase() + category.slice(1));
+    const categories = [...new Set(RESTAURANT.menu.map(item => item.category))];
+    const upperCaseCategories = categorys.map(category => category.charAt(0).toUpperCase() + category.slice(1));
 
     res.render('menu.ejs', { menu: RESTAURANT.menu, upperCaseCategorys });
 });
@@ -67,8 +67,13 @@ app.get('/menu/:category', (req, res) => {
     const category = req.params.category;
     const filteredMenu = RESTAURANT.menu.filter(item => item.category === category);
     
+    if (filteredMenu.length === 0) {
+        return res.send('Category not found')
+    }
     res.render('category.ejs', { menu: filteredMenu, category: category.charAt(0).toUpperCase() + category.slice(1) });
 })
 
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
